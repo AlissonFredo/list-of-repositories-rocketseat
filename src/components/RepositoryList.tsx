@@ -16,15 +16,16 @@ export function RepositoryList() {
             .then(response => response.json())
             .then(data => setRepositories(data))
     }, [])
-
+    
     return (
-        <section className="repository-list">
-            <h1>Lista de repositórios</h1>
-            <ul>
-                {repositories.map(repository => {
-                    return <RepositoryItem key={repository.name} repository={repository}/>
+        
+        <section className="repository-list mt-4">
+            <h1 className="text-center mb-3">Lista de repositórios</h1>
+            <div className="card-columns">
+                {repositories.map((repository, key) => {
+                    return <RepositoryItem key={key} repository={repository}/>
                 })}
-            </ul>
+            </div>
         </section>
     );
 }
